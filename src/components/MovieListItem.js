@@ -21,7 +21,7 @@ export default (props) => {
           <Text>Popularity: {popularity}</Text>
           <Text>Release Date: {releaseDate}</Text>
           <Button
-            onPress={() => navigation.navigate('Movie', { image, title, popularity, releaseDate, overview })}
+            onPress={() => navigation.navigate('Detail', { image, title, popularity, releaseDate, overview })}
             w="100%"
           >
             More Details

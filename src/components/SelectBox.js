@@ -15,8 +15,8 @@ export default ({ filter, setFilter }) => {
       onValueChange={(itemValue) => setFilter(itemValue)}
     >
       <Select.Item label="Popular" value="popular" />
-      <Select.Item label="Top Rated" value="topRated" />
-      <Select.Item label="Now Playing" value="nowPlaying" />
+      <Select.Item label="Top Rated" value="top_rated" />
+      <Select.Item label="Now Playing" value="now_playing" />
       <Select.Item label="Upcoming" value="upcoming" />
     </Select>
   );
