@@ -1,22 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRoute } from '@react-navigation/core';
 import { View, VStack, Heading, Text, Image } from 'native-base';
-import { useRoute } from '@react-navigation/native';
+import Loading from '../components/Loading';
+import { getMovie } from '../utils/api';
 
 export default () => {
+  const [loading, setLoading] = useState(false);
+  const [movie, setMovie] = useState([]);
+
   const route = useRoute();
+
+  const fetchMovie = () => {
+    setLoading(true);
+
+    getMovie(route.params.media, route.params.id).then(
+      (fetchedMovie) => {
+        setMovie(fetchedMovie);
+        setLoading(false);
+      },
+      (err) => {
+        alert('Error', `Something went wrong! ${err}`);
+      }
+    );
+  };
+
+  useEffect(() => {
+    fetchMovie();
+  }, []);
 
   return (
     <View px={8}>
-      <VStack space={4} my={4} alignItems="center">
-        <Heading size="md">{route.params.title}</Heading>
-        <Image size="192px" source={{ uri: route.params.image }} alt="thumbnail" />
-      </VStack>
-      <VStack space={4} my={4}>
-        <Text>{route.params.overview}</Text>
-        <Text>
-          Popularity: {route.params.popularity} | Release Date: {route.params.releaseDate}
-        </Text>
-      </VStack>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <VStack space={4} my={4} alignItems="center">
+            <Heading size="md">{movie.title}</Heading>
+            <Image size="192px" source={{ uri: movie.image }} alt="thumbnail" />
+          </VStack>
+          <VStack space={4} my={4}>
+            <Text>{movie.overview}</Text>
+            <Text>
+              Popularity: {movie.popularity} | Release Date: {movie.releaseDate}
+            </Text>
+          </VStack>
+        </>
+      )}
     </View>
   );
 };

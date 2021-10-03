@@ -32,7 +32,7 @@ export default () => {
     <View h="100%" flex={1} px={4} bg="#fff">
       <VStack alignItems="center" space={1} w="100%" h="100%" mt={4} divider={<Divider />}>
         <MoviesFilter filter={filter} setFilter={setFilter} />
-        {loading ? <Loading /> : <MoviesList movies={movies} />}
+        {loading ? <Loading /> : <MoviesList movies={movies} media="movie" />}
       </VStack>
     </View>
   );
