@@ -7,21 +7,17 @@ export default (props) => {
   const navigation = useNavigation();
 
   return (
-    <View borderBottomWidth="1" borderColor="coolGray.200" py="2" w="100%">
+    <View w="100%" py="2" borderBottomWidth="1" borderColor="coolGray.200">
       <HStack space={3} justifyContent="space-between">
-        <Image
-          size="96px"
-          source={{
-            uri: image,
-          }}
-          alt="thumbnail"
-        />
+        <View w="96px">
+          <Image flex={1} source={{ uri: image }} alt="thumbnail" />
+        </View>
         <VStack flex={1}>
           <Heading size="xs">{title}</Heading>
           <Text>Popularity: {popularity}</Text>
           <Text>Release Date: {releaseDate}</Text>
           <Button
-            onPress={() => navigation.navigate('Detail', { image, title, popularity, releaseDate, overview })}
+            onPress={() => navigation.navigate('Movie', { image, title, popularity, releaseDate, overview })}
             w="100%"
           >
             More Details

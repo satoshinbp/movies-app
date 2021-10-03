@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, VStack, Divider } from 'native-base';
 import Loading from '../components/Loading';
 import MoviesList from '../components/MoviesList';
-import SelectBox from '../components/SelectBox';
+import MoviesFilter from '../components/MoviesFilter';
 import { getMovies } from '../utils/api';
 
 export default () => {
@@ -13,11 +13,10 @@ export default () => {
   const fetchMovies = () => {
     setLoading(true);
 
-    getMovies(filter).then(
+    getMovies('movie', filter).then(
       (fetchedMovies) => {
         setMovies(fetchedMovies);
         setLoading(false);
-        console.log('movies', fetchedMovies);
       },
       (err) => {
         alert('Error', `Something went wrong! ${err}`);
@@ -30,9 +29,9 @@ export default () => {
   }, [filter]);
 
   return (
-    <View px={4} bg="#fff" minH="100%">
-      <VStack w="100%" my={4} alignItems="center" space={1} divider={<Divider />}>
-        <SelectBox filter={filter} setFilter={setFilter} />
+    <View h="100%" flex={1} px={4} bg="#fff">
+      <VStack alignItems="center" space={1} w="100%" h="100%" mt={4} divider={<Divider />}>
+        <MoviesFilter filter={filter} setFilter={setFilter} />
         {loading ? <Loading /> : <MoviesList movies={movies} />}
       </VStack>
     </View>

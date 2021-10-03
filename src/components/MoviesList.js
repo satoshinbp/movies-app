@@ -9,15 +9,14 @@ export default ({ movies }) => {
       renderItem={({ item }) => (
         <MovieListItem
           image={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-          title={item.title}
+          title={item.title || item.name}
           popularity={item.popularity}
-          releaseDate={item.release_date}
+          releaseDate={item.release_date || item.first_air_date}
           overview={item.overview}
         />
       )}
-      keyExtractor={(item) => item.title}
+      keyExtractor={(item) => item.id}
       showsVerticalScrollIndicator={false}
-      space={10}
       w="100%"
     />
   );

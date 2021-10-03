@@ -6,8 +6,8 @@ export default ({ filter, setFilter }) => {
     <Select
       selectedValue={filter}
       minWidth="200"
-      accessibilityLabel="Choose Filter"
-      placeholder="Choose Filter"
+      accessibilityLabel="Filter"
+      placeholder="Select filter"
       _selectedItem={{
         bg: 'teal.600',
         endIcon: <CheckIcon size="5" />,
@@ -16,8 +16,8 @@ export default ({ filter, setFilter }) => {
     >
       <Select.Item label="Popular" value="popular" />
       <Select.Item label="Top Rated" value="top_rated" />
-      <Select.Item label="Now Playing" value="now_playing" />
-      <Select.Item label="Upcoming" value="upcoming" />
+      <Select.Item label="On the Air" value="on_the_air" />
+      <Select.Item label="Airing Today" value="airing_today" />
     </Select>
   );
 };
