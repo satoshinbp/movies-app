@@ -2,9 +2,10 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { View, VStack, HStack, Heading, Text, Button, Image } from 'native-base'
 
-export default props => {
-  const { image, title, popularity, releaseDate, media, id } = props
+export default ({ image, title, popularity, releaseDate, media, id }) => {
   const navigation = useNavigation()
+
+  console.log(media)
 
   return (
     <View w="100%" py="2" borderBottomWidth="1" borderColor="coolGray.200">

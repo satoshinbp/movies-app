@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View, Center, VStack, Divider, Heading } from 'native-base'
+import { View, Center, VStack, Heading } from 'native-base'
 import Loading from '../components/Loading'
 import SearchForm from '../components/SearchForm'
 import MoviesList from '../components/MoviesList'
@@ -60,7 +60,7 @@ export default () => {
             </Heading>
           </Center>
         ) : (
-          <MoviesList movies={movies} />
+          <MoviesList movies={movies} media={filter === 'multi' ? null : filter} />
         )}
       </VStack>
     </View>
