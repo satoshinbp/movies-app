@@ -1,11 +1,11 @@
-import React from 'react';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Movies from '../screens/Movies';
-import Search from '../screens/Search';
-import TVShows from '../screens/TVShows';
-import Header from '../components/Header';
+import React from 'react'
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
+import Movies from '../screens/Movies'
+import Search from '../screens/Search'
+import TVShows from '../screens/TVShows'
+import Header from '../components/Header'
 
-const Tab = createMaterialTopTabNavigator();
+const Tab = createMaterialTopTabNavigator()
 
 export default () => {
   return (
@@ -22,5 +22,5 @@ export default () => {
         <Tab.Screen name="TV Shows" component={TVShows} />
       </Tab.Navigator>
     </>
-  );
-};
+  )
+}

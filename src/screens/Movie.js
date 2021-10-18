@@ -1,32 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { useRoute } from '@react-navigation/core';
-import { View, VStack, Heading, Text, Image } from 'native-base';
-import Loading from '../components/Loading';
-import { getMovie } from '../utils/api';
+import React, { useState, useEffect } from 'react'
+import { useRoute } from '@react-navigation/core'
+import { View, VStack, Heading, Text, Image } from 'native-base'
+import Loading from '../components/Loading'
+import { getMovie } from '../utils/api'
 
 export default () => {
-  const [loading, setLoading] = useState(false);
-  const [movie, setMovie] = useState([]);
+  const [loading, setLoading] = useState(false)
+  const [movie, setMovie] = useState([])
 
-  const route = useRoute();
+  const route = useRoute()
 
   const fetchMovie = () => {
-    setLoading(true);
+    setLoading(true)
 
     getMovie(route.params.media, route.params.id).then(
-      (fetchedMovie) => {
-        setMovie(fetchedMovie);
-        setLoading(false);
+      fetchedMovie => {
+        setMovie(fetchedMovie)
+        setLoading(false)
       },
-      (err) => {
-        alert('Error', `Something went wrong! ${err}`);
+      err => {
+        alert('Error', `Something went wrong! ${err}`)
       }
-    );
-  };
+    )
+  }
 
   useEffect(() => {
-    fetchMovie();
-  }, []);
+    fetchMovie()
+  }, [])
 
   return (
     <View px={8}>
@@ -47,5 +47,5 @@ export default () => {
         </>
       )}
     </View>
-  );
-};
+  )
+}

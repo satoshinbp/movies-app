@@ -1,6 +1,6 @@
-import React from 'react';
-import { FlatList } from 'native-base';
-import MovieListItem from './MovieListItem';
+import React from 'react'
+import { FlatList } from 'native-base'
+import MovieListItem from './MovieListItem'
 
 export default ({ movies, media }) => {
   return (
@@ -17,9 +17,9 @@ export default ({ movies, media }) => {
           media={media || item.media_type}
         />
       )}
-      keyExtractor={(item) => item.id}
+      keyExtractor={item => item.id}
       showsVerticalScrollIndicator={false}
       w="100%"
     />
-  );
-};
+  )
+}

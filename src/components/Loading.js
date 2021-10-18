@@ -1,5 +1,5 @@
-import { Center, HStack, Heading, Spinner } from 'native-base';
-import React from 'react';
+import { Center, HStack, Heading, Spinner } from 'native-base'
+import React from 'react'
 
 export default () => {
   return (
@@ -11,5 +11,5 @@ export default () => {
         </Heading>
       </HStack>
     </Center>
-  );
-};
+  )
+}

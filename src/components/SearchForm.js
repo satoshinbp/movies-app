@@ -1,15 +1,15 @@
-import React from 'react';
-import { VStack, HStack, FormControl, Input, Select, Button, Icon, CheckIcon } from 'native-base';
-import { Ionicons } from '@expo/vector-icons';
+import React from 'react'
+import { VStack, HStack, FormControl, Input, Select, Button, Icon, CheckIcon } from 'native-base'
+import { Ionicons } from '@expo/vector-icons'
 
 export default ({ searchText, setSearchText, searchType, setSearchType, fetchMovies, error, setError }) => {
   const onSubmit = () => {
     if (searchText === '') {
-      setError(true);
+      setError(true)
     } else {
-      fetchMovies();
+      fetchMovies()
     }
-  };
+  }
 
   return (
     <VStack w="100%" space={4}>
@@ -18,7 +18,7 @@ export default ({ searchText, setSearchText, searchType, setSearchType, fetchMov
         <Input
           placeholder="i.e. Fight Club, Breaking Bad"
           value={searchText}
-          onChangeText={(value) => setSearchText(value)}
+          onChangeText={value => setSearchText(value)}
         />
         {error && <FormControl.HelperText>Please input search text.</FormControl.HelperText>}
       </FormControl>
@@ -34,7 +34,7 @@ export default ({ searchText, setSearchText, searchType, setSearchType, fetchMov
               bg: 'teal.600',
               endIcon: <CheckIcon size="5" />,
             }}
-            onValueChange={(itemValue) => setSearchType(itemValue)}
+            onValueChange={itemValue => setSearchType(itemValue)}
           >
             <Select.Item label="Both" value="multi" />
             <Select.Item label="Movie" value="movie" />
@@ -46,5 +46,5 @@ export default ({ searchText, setSearchText, searchType, setSearchType, fetchMov
         </Button>
       </HStack>
     </VStack>
-  );
-};
+  )
+}

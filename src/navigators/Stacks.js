@@ -1,9 +1,9 @@
-import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Tabs from './Tabs';
-import Movie from '../screens/Movie';
+import React from 'react'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import Tabs from './Tabs'
+import Movie from '../screens/Movie'
 
-const MoviesStack = createNativeStackNavigator();
+const MoviesStack = createNativeStackNavigator()
 
 export default () => {
   return (
@@ -11,5 +11,5 @@ export default () => {
       <MoviesStack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
       <MoviesStack.Screen name="Movie" component={Movie} options={({ route }) => ({ title: route.params.title })} />
     </MoviesStack.Navigator>
-  );
-};
+  )
+}
