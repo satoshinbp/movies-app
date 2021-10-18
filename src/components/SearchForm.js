@@ -1,7 +1,7 @@
 import React from 'react'
 import { VStack, HStack, FormControl, Input, Button, Icon } from 'native-base'
 import { Ionicons } from '@expo/vector-icons'
-import Search from '../screens/Search'
+import Select from './Select'
 
 export default ({ searchText, setSearchText, filter, setFilter, fetchMovies, error, setError }) => {
   const onSubmit = () => {
