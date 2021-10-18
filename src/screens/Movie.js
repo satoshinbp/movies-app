@@ -24,9 +24,7 @@ export default () => {
     )
   }
 
-  useEffect(() => {
-    fetchMovie()
-  }, [])
+  useEffect(() => fetchMovie(), [])
 
   return (
     <View px={8}>
