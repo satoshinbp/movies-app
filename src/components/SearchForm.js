@@ -1,8 +1,9 @@
 import React from 'react'
-import { VStack, HStack, FormControl, Input, Select, Button, Icon, CheckIcon } from 'native-base'
+import { VStack, HStack, FormControl, Input, Button, Icon } from 'native-base'
 import { Ionicons } from '@expo/vector-icons'
+import Search from '../screens/Search'
 
-export default ({ searchText, setSearchText, searchType, setSearchType, fetchMovies, error, setError }) => {
+export default ({ searchText, setSearchText, filter, setFilter, fetchMovies, error, setError }) => {
   const onSubmit = () => {
     if (searchText === '') {
       setError(true)
@@ -25,21 +26,7 @@ export default ({ searchText, setSearchText, searchType, setSearchType, fetchMov
       <HStack justifyContent="space-between" alignItems="flex-end" space={2}>
         <FormControl isRequired flex={1}>
           <FormControl.Label>Type</FormControl.Label>
-          <Select
-            selectedValue={searchType}
-            minWidth="200"
-            accessibilityLabel="Type"
-            placeholder="Select type"
-            _selectedItem={{
-              bg: 'teal.600',
-              endIcon: <CheckIcon size="5" />,
-            }}
-            onValueChange={itemValue => setSearchType(itemValue)}
-          >
-            <Select.Item label="Both" value="multi" />
-            <Select.Item label="Movie" value="movie" />
-            <Select.Item label="TV Shows" value="tv" />
-          </Select>
+          <Select media="search" filter={filter} setFilter={setFilter} />
         </FormControl>
         <Button onPress={onSubmit} startIcon={<Icon as={Ionicons} name="ios-search" />}>
           Search

@@ -8,7 +8,7 @@ import { searchMovies } from '../utils/api'
 export default () => {
   const [loading, setLoading] = useState(false)
   const [searchText, setSearchText] = useState('')
-  const [searchType, setSearchType] = useState('multi')
+  const [filter, setFilter] = useState('multi')
   const [movies, setMovies] = useState([])
   const [message, setMasseage] = useState('Please initiate search')
   const [error, setError] = useState(false)
@@ -16,7 +16,7 @@ export default () => {
   const fetchMovies = () => {
     setLoading(true)
 
-    searchMovies(searchText, searchType).then(
+    searchMovies(searchText, filter).then(
       fetchedMovies => {
         if (fetchedMovies.length === 0) {
           setMasseage('No Match')
@@ -45,8 +45,8 @@ export default () => {
         <SearchForm
           searchText={searchText}
           setSearchText={setSearchText}
-          searchType={searchType}
-          setSearchType={setSearchType}
+          filter={filter}
+          setFilter={setFilter}
           fetchMovies={fetchMovies}
           error={error}
           setError={setError}
